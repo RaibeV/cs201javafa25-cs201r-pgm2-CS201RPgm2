@@ -8,7 +8,7 @@ public class Main {
         char choice = menu(scanInput);
 
         while (choice != 'Q'){
-            // dispatch to the selected game
+            // dispatch to the selected game, gen AI gave me idea for using "case ' ' -> " syntax
             switch (choice) {
                 case 'A' -> PlayHangman.playHangman(scanInput);
                 case 'B' -> PlayBlackjack.playBlackjack(scanInput);

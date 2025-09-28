@@ -16,15 +16,24 @@ public class Games {
         // Prompt the user to enter a two-digit number
         System.out.print("Enter your lottery pick (10-99): ");
         Scanner scanner = new Scanner(System.in);
-        int user = scanner.nextInt();
-
+        String userInput = ""; // declare before the loop
+        int user = -1;
         // Ensure it's a valid two-digit number
-        int userGuess = user;
-        while (userGuess < 10 || userGuess > 99){
-            System.out.println("Invalid input, please enter a valid lottery number (10-99): ");
-            int newGuess = scanner.nextInt();
-            userGuess = newGuess;
+        
+        while (true) {
+        userInput = scanner.next();
+        if (!userInput.matches("\\d+")) {  
+            System.out.print("Invalid input (no symbols/letters). Enter a valid lottery number (10-99): ");
+            continue;
         }
+        user = Integer.parseInt(userInput);
+        if (user < 10 || user > 99) {
+            System.out.print("Invalid input, please enter a valid lottery number (10-99): ");
+            continue;
+        }
+        break; // valid number entered
+    }
+    int userGuess = user;
 
         // Display lottery number
         System.out.println("\nThe lottery number is: " + lotteryNum);
